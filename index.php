@@ -1,11 +1,9 @@
 <?php require("./components/header.inc.php"); ?>
 
-<!-- Wrapper -->
 <div id="wrapper">
 
 	<?php require("./components/navbar.inc.php"); ?>
 
-	<!-- Banner -->
 	<section id="banner" class="major">
 		<div class="inner">
 			<header class="major">
@@ -20,15 +18,20 @@
 		</div>
 	</section>
 
-	<!-- Main -->
 	<div id="main">
-		<!-- About us -->
 		<section>
 			<div class="inner">
 				<header class="major">
-					<h2>About us</h2>
+					<h2>What is Guhit Mo?</h2>
 				</header>
-				<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus.</p>
+				<p>Welcome to Guhit Mo, the virtual sanctuary where art comes to life and creativity finds its home.
+					Step into our digital gallery, where every stroke, every hue, and every expression paints a vibrant
+					tapestry of imagination. Here, we celebrate the boundless spirit of artists from all walks of life,
+					offering a cozy lounge where inspiration flows freely and appreciation knows no bounds.
+					Whether you're a seasoned creator or an admirer of the arts, Guhit Mo invites you to explore,
+					connect, and immerse yourself in a world where every masterpiece tells a story. Join us as we journey
+					through the depths of creativity and unveil the beauty that lies within each Guhit (Stroke) — for here,
+					art isn't just observed, it's experienced.</p>
 				<ul class="actions">
 					<li><a href="about-us.html" class="button next">Read more</a></li>
 				</ul>
