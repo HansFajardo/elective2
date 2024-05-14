@@ -1,6 +1,11 @@
 <!-- Footer -->
 <footer id="footer">
     <div class="inner">
+        <p>Whether you're here to admire the beauty of art or to contribute your own creations,
+            Guhit Mo welcomes you. Together, let's celebrate the power of art to inspire, connect, and transform.
+            Stay connected with us on social media and subscribe to our newsletter for the latest updates,
+            featured artists, and upcoming events. Thank you for being part of the Guhit Mo community &#45;
+            where every stroke tells a story, and every artist finds their place.</p>
         <ul class="icons">
             <li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
             <li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>

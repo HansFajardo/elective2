@@ -1,8 +1,8 @@
 <?php
 require_once './backend/config.php';
 
-$username = $password = '';
-$username_err = $password_err = '';
+$username = $email = $password = $confirm_password = '';
+$username_err = $email_err = $password_err = $confirm_password_err = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -32,6 +32,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
+    if (empty(trim($_POST["email"]))) {
+        $email_err = "Please enter an email.";
+    } elseif (!filter_var(trim($_POST["email"]), FILTER_VALIDATE_EMAIL)) {
+        $email_err = "Please enter a valid email address.";
+    } else {
+        $email = trim($_POST["email"]);
+    }
+
     if (empty(trim($_POST['password']))) {
         $password_err = "Please enter a password.";
     } elseif (strlen(trim($_POST['password'])) < 6) {
@@ -40,14 +48,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $password = trim($_POST['password']);
     }
 
-    if (empty($username_err) && empty($password_err)) {
+    if (empty(trim($_POST["confirm_password"]))) {
+        $confirm_password_err = "Please confirm password.";
+    } else {
+        $confirm_password = trim($_POST["confirm_password"]);
+        if (empty($password_err) && ($password != $confirm_password)) {
+            $confirm_password_err = "Password did not match.";
+        }
+    }
 
-        $sql = "INSERT INTO users (username, password) VALUES (?, ?)";
+    if (empty($username_err) && empty($email_err) && empty($password_err) && empty($confirm_password_err)) {
+
+        $sql = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
 
         if ($stmt = mysqli_prepare($connection, $sql)) {
-            mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_password);
+            mysqli_stmt_bind_param($stmt, "sss", $param_username, $param_email, $param_password);
 
             $param_username = $username;
+            $param_email = $email;
             $param_password = password_hash($password, PASSWORD_DEFAULT);
 
             if (mysqli_stmt_execute($stmt)) {
@@ -64,45 +82,52 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <title>Sign Up</title>
-    <style>
-        body {
-            font: 14px sans-serif;
-        }
-
-        .wrapper {
-            width: 360px;
-            padding: 20px;
-        }
-    </style>
+    <title>Guhit Mo</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
 </head>
 
-<body>
-    <div class="wrapper">
-        <h2>Sign Up</h2>
-        <p>Please fill this form to create an account.</p>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-            <div>
-                <label>Username</label>
-                <input type="text" name="username" value="<?php echo $username; ?>">
-                <span><?php echo $username_err; ?></span>
-            </div>
-            <div>
-                <label>Password</label>
-                <input type="password" name="password" value="<?php echo $password; ?>">
-                <span><?php echo $password_err; ?></span>
-            </div>
-            <div>
-                <input type="submit" value="Submit">
-                <input type="reset" value="Reset">
-            </div>
-            <p>Already have an account? <a href="login.php">Login here</a>.</p>
-        </form>
+<body style="background: linear-gradient(45deg, #242943, #445297);">
+    <div class="d-flex align-items-center justify-content-center" style="height: 100vh;">
+        <div class="container text-center bg-white p-3 rounded-2" style="max-width: 400px;">
+            <h2>Join the Gallery</h2>
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                <div class="form-group text-left">
+                    <label class="ml-2">Username</label>
+                    <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
+                    <span class="text-danger"><?php echo $username_err; ?></span>
+                </div>
+
+                <div class="form-group text-left">
+                    <label class="ml-2">Email</label>
+                    <input type="text" name="email" class="form-control" value="<?php echo $email; ?>">
+                    <span class="text-danger"><?php echo $email_err; ?></span>
+                </div>
+                
+                <div class="form-group text-left">
+                    <label class="ml-2">Password</label>
+                    <input type="password" name="password" class="form-control" value="<?php echo $password; ?>">
+                    <span class="text-danger"><?php echo $password_err; ?></span>
+                </div>
+
+                <div class="form-group text-left">
+                    <label class="ml-2">Confirm Password</label>
+                    <input type="password" name="confirm_password" class="form-control" value="<?php echo $confirm_password; ?>">
+                    <span class="text-danger"><?php echo $confirm_password_err; ?></span>
+                </div>
+
+                <div class="form-group d-flex justify-content-around">
+                    <input type="reset" class="btn btn-secondary" style="width: 30%;" value="Reset">
+                    <input type="submit" class="btn btn-primary" style="width: 30%;" value="Submit">
+                </div>
+                <p>Already have an account? <a href="login.php">Login here</a>.</p>
+            </form>
+        </div>
     </div>
 </body>
 

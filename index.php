@@ -19,8 +19,8 @@
 	</section>
 
 	<div id="main">
-		<section>
-			<div class="inner">
+		<section class="inner">
+			<div>
 				<header class="major">
 					<h2>What is Guhit Mo?</h2>
 				</header>
@@ -38,117 +38,132 @@
 			</div>
 		</section>
 
-		<!-- Blog Posts -->
-		<section class="tiles">
-			<article>
-				<span class="image">
-					<img src="images/blog-1-720x480.jpg" alt="" />
-				</span>
+		<section class="inner">
+			<div>
 				<header class="major">
-					<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit hic</h3>
-
-					<p><br> <span>John Doe</span> | <span>12/06/2020 10:30 </span> | <span>114</span></p>
-
-					<div class="major-actions">
-						<a href="blog-details.html" class="button small next scrolly">Read Blog</a>
-					</div>
+					<h2>Our Mission</h2>
 				</header>
-			</article>
-			<article>
-				<span class="image">
-					<img src="images/blog-2-720x480.jpg" alt="" />
-				</span>
-				<header class="major">
-					<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit hic</h3>
-
-					<p><br> <span>John Doe</span> | <span>12/06/2020 10:30 </span> | <span>114</span></p>
-
-					<div class="major-actions">
-						<a href="blog-details.html" class="button small next scrolly">Read Blog</a>
-					</div>
-				</header>
-			</article>
-			<article>
-				<span class="image">
-					<img src="images/blog-3-720x480.jpg" alt="" />
-				</span>
-				<header class="major">
-					<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit hic</h3>
-
-					<p><br> <span>John Doe</span> | <span>12/06/2020 10:30 </span> | <span>114</span></p>
-
-					<div class="major-actions">
-						<a href="blog-details.html" class="button small next scrolly">Read Blog</a>
-					</div>
-				</header>
-			</article>
-
-			<article>
-				<span class="image">
-					<img src="images/blog-4-720x480.jpg" alt="" />
-				</span>
-				<header class="major">
-					<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit hic</h3>
-
-					<p><br> <span>John Doe</span> | <span>12/06/2020 10:30 </span> | <span>114</span></p>
-
-					<div class="major-actions">
-						<a href="blog-details.html" class="button small next scrolly">Read Blog</a>
-					</div>
-				</header>
-			</article>
-
-			<article>
-				<span class="image">
-					<img src="images/blog-5-720x480.jpg" alt="" />
-				</span>
-				<header class="major">
-					<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit hic</h3>
-
-					<p><br> <span>John Doe</span> | <span>12/06/2020 10:30 </span> | <span>114</span></p>
-
-					<div class="major-actions">
-						<a href="blog-details.html" class="button small next scrolly">Read Blog</a>
-					</div>
-				</header>
-			</article>
-
-			<article>
-				<span class="image">
-					<img src="images/blog-6-720x480.jpg" alt="" />
-				</span>
-				<header class="major">
-					<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit hic</h3>
-
-					<p><br> <span>John Doe</span> | <span>12/06/2020 10:30 </span> | <span>114</span></p>
-
-					<div class="major-actions">
-						<a href="blog-details.html" class="button small next scrolly">Read Blog</a>
-					</div>
-				</header>
-			</article>
+				<p>Our mission is to provide a dynamic and supportive space for artists
+					to showcase their work, share their stories, and connect with a broader
+					audience. We strive to foster an appreciation for the arts by presenting
+					diverse styles and perspectives, making art accessible and enjoyable for everyone.</p>
+			</div>
 		</section>
 
-		<!-- Testimonials -->
-		<section>
-			<div class="inner">
+		<section class="inner">
+			<header class="major">
+				<h2>See some arts!</h2>
+			</header>
+			<div class="tiles d-flex flex-row justify-content-center">
+				<article class="m-3">
+					<span class="image">
+						<img src="images/blog-1-720x480.jpg" alt="" />
+					</span>
+					<header class="major">
+						<h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit hic</h4>
+
+						<p><br> <span>John Doe</span> | <span>12/06/2020 10:30 </span> | <span>114</span></p>
+
+						<div class="major-actions">
+							<a href="blog-details.html" class="button small next scrolly">Read Blog</a>
+						</div>
+					</header>
+				</article>
+
+				<article class="m-3">
+					<span class="image">
+						<img src="images/blog-1-720x480.jpg" alt="" />
+					</span>
+					<header class="major">
+						<h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit hic</h4>
+
+						<p><br> <span>John Doe</span> | <span>12/06/2020 10:30 </span> | <span>114</span></p>
+
+						<div class="major-actions">
+							<a href="blog-details.html" class="button small next scrolly">Read Blog</a>
+						</div>
+					</header>
+				</article>
+
+				<article class="m-3">
+					<span class="image">
+						<img src="images/blog-1-720x480.jpg" alt="" />
+					</span>
+					<header class="major">
+						<h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit hic</h4>
+
+						<p><br> <span>John Doe</span> | <span>12/06/2020 10:30 </span> | <span>114</span></p>
+
+						<div class="major-actions">
+							<a href="blog-details.html" class="button small next scrolly">Read Blog</a>
+						</div>
+					</header>
+				</article>
+
+				<article class="m-3">
+					<span class="image">
+						<img src="images/blog-1-720x480.jpg" alt="" />
+					</span>
+					<header class="major">
+						<h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit hic</h4>
+
+						<p><br> <span>John Doe</span> | <span>12/06/2020 10:30 </span> | <span>114</span></p>
+
+						<div class="major-actions">
+							<a href="blog-details.html" class="button small next scrolly">Read Blog</a>
+						</div>
+					</header>
+				</article>
+
+				<article class="m-3">
+					<span class="image">
+						<img src="images/blog-1-720x480.jpg" alt="" />
+					</span>
+					<header class="major">
+						<h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit hic</h4>
+
+						<p><br> <span>John Doe</span> | <span>12/06/2020 10:30 </span> | <span>114</span></p>
+
+						<div class="major-actions">
+							<a href="blog-details.html" class="button small next scrolly">Read Blog</a>
+						</div>
+					</header>
+				</article>
+
+				<article class="m-3">
+					<span class="image">
+						<img src="images/blog-1-720x480.jpg" alt="" />
+					</span>
+					<header class="major">
+						<h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit hic</h4>
+
+						<p><br> <span>John Doe</span> | <span>12/06/2020 10:30 </span> | <span>114</span></p>
+
+						<div class="major-actions">
+							<a href="blog-details.html" class="button small next scrolly">Read Blog</a>
+						</div>
+					</header>
+				</article>
+			</div>
+		</section>
+
+		<section class="inner">
+			<div>
 				<header class="major">
-					<h2>Testimonials</h2>
+					<h2>Who We Are</h2>
 				</header>
 				<div class="row">
 					<div class="col-6">
-						<p><em>"Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt."</em></p>
-						<p><strong>- John Doe</strong></p>
-
-					</div>
-
-					<div class="col-6">
-						<p><em>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores temporibus dolorum minus repudiandae, eaque error corporis aliquam, architecto amet itaque nobis. Omnis itaque est dolore, a nostrum numquam. Quae, facilis."</em></p>
-						<p><strong>- Jack Smith</strong></p>
+						<p><em>Guhit Mo is a collective of passionate individuals united by a
+								love for art and a commitment to nurturing talent.
+								Our team comprises artists, curators, and enthusiasts who believe
+								in the transformative power of creativity. We aim to create an inclusive
+								environment where every artist, regardless of their medium or experience
+								level, feels valued and inspired.</em></p>
 					</div>
 				</div>
 				<ul class="actions">
-					<li><a href="testimonials.html" class="button next">Read more</a></li>
+					<li><a href="testimonials.html" class="button next">About Us</a></li>
 				</ul>
 			</div>
 		</section>
