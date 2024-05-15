@@ -57,16 +57,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
+    // Check if file was uploaded without errors
+    if(isset($_FILES["profile_pic"]) && $_FILES["profile_pic"]["error"] == 0){
+        $allowed_types = array('jpg', 'jpeg', 'png');
+        $file_extension = pathinfo($_FILES["profile_pic"]["name"], PATHINFO_EXTENSION);
+
+        // Check if file type is allowed
+        if(in_array($file_extension, $allowed_types)){
+            $picture = $_FILES["profile_pic"]["tmp_name"];
+        } else {
+            echo "Only JPG, JPEG, and PNG files are allowed.";
+            exit;
+        }
+    } else {
+        // Use default image if no file is uploaded
+        $picture = "./images/default_profile_pic.jpg";
+    }
+
     if (empty($username_err) && empty($email_err) && empty($password_err) && empty($confirm_password_err)) {
 
-        $sql = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
+        $sql = "INSERT INTO users (username, email, password, picture) VALUES (?, ?, ?, ?)";
 
         if ($stmt = mysqli_prepare($connection, $sql)) {
-            mysqli_stmt_bind_param($stmt, "sss", $param_username, $param_email, $param_password);
+            mysqli_stmt_bind_param($stmt, "ssss", $param_username, $param_email, $param_password, $param_picture);
 
             $param_username = $username;
             $param_email = $email;
             $param_password = password_hash($password, PASSWORD_DEFAULT);
+            $param_picture = file_get_contents($picture); // Read image file
 
             if (mysqli_stmt_execute($stmt)) {
                 header("location: login.php");
@@ -90,13 +108,59 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <title>Guhit Mo</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <style>
+        .profile-pic-upload {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-pic-upload img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .profile-pic-upload input[type="file"] {
+            display: none;
+        }
+
+        .upload-btn {
+            background-color: #007bff;
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .upload-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 
 <body style="background: linear-gradient(45deg, #242943, #445297);">
     <div class="d-flex align-items-center justify-content-center" style="height: 100vh;">
         <div class="container text-center bg-white p-3 rounded-2" style="max-width: 400px;">
             <h2>Join the Gallery</h2>
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
+                <div class="form-group profile-pic-upload">
+                    <label class="ml-2">Profile Picture</label>
+                    <?php
+                        // If the user uploaded an image, show the uploaded image
+                        if(isset($_FILES["profile_pic"]) && $_FILES["profile_pic"]["error"] == 0){
+                            echo '<img id="preview" src="'.htmlspecialchars($_FILES["profile_pic"]["tmp_name"]).'" alt="Profile Picture">';
+                        } else {
+                            // Otherwise, show the default image
+                            echo '<img id="preview" src="./images/default_profile_pic.jpg" alt="Profile Picture">';
+                        }
+                    ?>
+                    <input type="file" name="profile_pic" id="profile_pic" accept="image/*" onchange="previewImage(event)">
+                    <label for="profile_pic" class="upload-btn">Upload</label>
+                </div>
+
                 <div class="form-group text-left">
                     <label class="ml-2">Username</label>
                     <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
@@ -108,7 +172,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="text" name="email" class="form-control" value="<?php echo $email; ?>">
                     <span class="text-danger"><?php echo $email_err; ?></span>
                 </div>
-                
+
                 <div class="form-group text-left">
                     <label class="ml-2">Password</label>
                     <input type="password" name="password" class="form-control" value="<?php echo $password; ?>">
@@ -129,6 +193,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </form>
         </div>
     </div>
+
+    <script>
+        function previewImage(event) {
+            var reader = new FileReader();
+            reader.onload = function() {
+                var output = document.getElementById('preview');
+                output.src = reader.result;
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
 </body>
 
 </html>

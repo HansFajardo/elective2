@@ -3361,13 +3361,13 @@ input[type=submit].btn-block {
     display: none;
     float: left;
     min-width: 10rem;
-    padding: .5rem 0;
+    padding: 0;
     margin: .125rem 0 0;
     font-size: 1rem;
     color: #212529;
     text-align: left;
     list-style: none;
-    background-color: #fff;
+    background-color: #ffffff9a;
     background-clip: padding-box;
     border: 1px solid rgba(0, 0, 0, .15);
     border-radius: .25rem
@@ -3490,33 +3490,28 @@ input[type=submit].btn-block {
 .dropdown-item {
     display: block;
     width: 100%;
-    padding: .25rem 1.5rem;
     clear: both;
     font-weight: 400;
-    color: #212529;
+    color: #1d1305;
     text-align: inherit;
     white-space: nowrap;
-    background-color: transparent;
     border: 0
 }
 
 .dropdown-item:focus,
 .dropdown-item:hover {
-    color: #16181b;
     text-decoration: none;
-    background-color: #f8f9fa
+    background-color: #5f5f5f85;
 }
 
 .dropdown-item.active,
 .dropdown-item:active {
-    color: #fff;
     text-decoration: none;
-    background-color: #007bff
+    background-color: #020341
 }
 
 .dropdown-item.disabled,
 .dropdown-item:disabled {
-    color: #6c757d;
     background-color: transparent
 }
 

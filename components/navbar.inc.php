@@ -29,7 +29,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
                                 <?php echo $userProfileName; ?>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Profile</a>
+                                <a class="dropdown-item" href="../profile.php">Profile</a>
                                 <a class="dropdown-item" href="../post-creation.php">Create a Post</a>
                                 <a class="dropdown-item" href="./backend/logout.php">Logout</a>
                             </div>

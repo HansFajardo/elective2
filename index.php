@@ -110,7 +110,7 @@ mysqli_close($connection);
 					</div>
 				</div>
 				<ul class="actions">
-					<li><a href="testimonials.php" class="button next">About Us</a></li>
+					<li><a href="aboutus.php" class="button next">About Us</a></li>
 				</ul>
 			</div>
 		</section>
