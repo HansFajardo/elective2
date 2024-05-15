@@ -1,7 +1,25 @@
+<?php
+require_once("./backend/config.php");
+
+$sql = "SELECT id, author, title, description, upload_date, image FROM posts";
+$result = mysqli_query($connection, $sql);
+
+$posts = [];
+
+if (mysqli_num_rows($result) > 0) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        $posts[] = $row;
+    }
+} else {
+    echo "No posts found.";
+}
+
+mysqli_close($connection);
+?>
+
 <?php require("./components/header.inc.php"); ?>
 
 <div id="wrapper">
-
 	<?php require("./components/navbar.inc.php"); ?>
 
 	<section id="banner" class="major">
@@ -12,8 +30,8 @@
 			<div class="content">
 				<p>The World in Your Hands!</p>
 				<ul class="actions">
-					<li><a href="#" class="button next scrolly">See Arts</a></li>
-				</ul>
+                    <li><a href="javascript:void(0);" onclick="scrollToArtSection();" class="button next scrolly">See Arts</a></li>
+                </ul>
 			</div>
 		</div>
 	</section>
@@ -50,102 +68,31 @@
 			</div>
 		</section>
 
-		<section class="inner">
-			<header class="major">
-				<h2>See some arts!</h2>
-			</header>
-			<div class="tiles d-flex flex-row justify-content-center">
-				<article class="m-3">
-					<span class="image">
-						<img src="images/blog-1-720x480.jpg" alt="" />
-					</span>
-					<header class="major">
-						<h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit hic</h4>
-
-						<p><br> <span>John Doe</span> | <span>12/06/2020 10:30 </span> | <span>114</span></p>
-
-						<div class="major-actions">
-							<a href="blog-details.html" class="button small next scrolly">Read Blog</a>
-						</div>
-					</header>
-				</article>
-
-				<article class="m-3">
-					<span class="image">
-						<img src="images/blog-1-720x480.jpg" alt="" />
-					</span>
-					<header class="major">
-						<h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit hic</h4>
-
-						<p><br> <span>John Doe</span> | <span>12/06/2020 10:30 </span> | <span>114</span></p>
-
-						<div class="major-actions">
-							<a href="blog-details.html" class="button small next scrolly">Read Blog</a>
-						</div>
-					</header>
-				</article>
-
-				<article class="m-3">
-					<span class="image">
-						<img src="images/blog-1-720x480.jpg" alt="" />
-					</span>
-					<header class="major">
-						<h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit hic</h4>
-
-						<p><br> <span>John Doe</span> | <span>12/06/2020 10:30 </span> | <span>114</span></p>
-
-						<div class="major-actions">
-							<a href="blog-details.html" class="button small next scrolly">Read Blog</a>
-						</div>
-					</header>
-				</article>
-
-				<article class="m-3">
-					<span class="image">
-						<img src="images/blog-1-720x480.jpg" alt="" />
-					</span>
-					<header class="major">
-						<h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit hic</h4>
-
-						<p><br> <span>John Doe</span> | <span>12/06/2020 10:30 </span> | <span>114</span></p>
-
-						<div class="major-actions">
-							<a href="blog-details.html" class="button small next scrolly">Read Blog</a>
-						</div>
-					</header>
-				</article>
-
-				<article class="m-3">
-					<span class="image">
-						<img src="images/blog-1-720x480.jpg" alt="" />
-					</span>
-					<header class="major">
-						<h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit hic</h4>
-
-						<p><br> <span>John Doe</span> | <span>12/06/2020 10:30 </span> | <span>114</span></p>
-
-						<div class="major-actions">
-							<a href="blog-details.html" class="button small next scrolly">Read Blog</a>
-						</div>
-					</header>
-				</article>
-
-				<article class="m-3">
-					<span class="image">
-						<img src="images/blog-1-720x480.jpg" alt="" />
-					</span>
-					<header class="major">
-						<h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit hic</h4>
-
-						<p><br> <span>John Doe</span> | <span>12/06/2020 10:30 </span> | <span>114</span></p>
-
-						<div class="major-actions">
-							<a href="blog-details.html" class="button small next scrolly">Read Blog</a>
-						</div>
-					</header>
-				</article>
-			</div>
-		</section>
+		<section id="art-section" class="inner">
+            <header class="major">
+                <h2>See some arts!</h2>
+            </header>
+            <div class="tiles d-flex flex-row justify-content-center">
+                <?php foreach ($posts as $post) : ?>
+                    <article class="m-3">
+                        <span class="image">
+                            <?php
+                            $imageData = base64_encode($post['image']);
+                            $imageSrc = 'data:image/jpeg;base64,' . $imageData;
+                            ?>
+                            <img src="<?php echo $imageSrc; ?>" alt="<?php echo $post['title']; ?>" style="width: 100%; height: auto;">
+                        </span>
+                        <header class="major">
+                            <h4><?php echo $post['title']; ?></h4>
+                            <p><br> <span><?php echo $post['author']; ?></span> | <span><?php echo $post['upload_date']; ?></span></p>
+                            <div class="major-actions">
+                                <a href="art-details.php?id=<?php echo $post['id']; ?>" class="button small next scrolly">Open Art</a>
+                            </div>
+                        </header>
+                    </article>
+                <?php endforeach; ?>
+            </div>
+        </section>
 
 		<section class="inner">
 			<div>
@@ -163,10 +110,11 @@
 					</div>
 				</div>
 				<ul class="actions">
-					<li><a href="testimonials.html" class="button next">About Us</a></li>
+					<li><a href="testimonials.php" class="button next">About Us</a></li>
 				</ul>
 			</div>
 		</section>
 	</div>
 
 	<?php require("./components/footer.inc.php") ?>
+</div>

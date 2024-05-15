@@ -21,9 +21,6 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
                         <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="dashboard.php">Blog</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="aboutus.php">About Us</a>
                     </li>
                     <li class="nav-item dropdown">
@@ -31,9 +28,9 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <?php echo $userProfileName; ?>
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="#">Profile</a>
-                                <a class="dropdown-item" href="#">Posts</a>
+                                <a class="dropdown-item" href="../post-creation.php">Create a Post</a>
                                 <a class="dropdown-item" href="./backend/logout.php">Logout</a>
                             </div>
                         <?php else : ?>

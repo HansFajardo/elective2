@@ -1,8 +1,3 @@
-/*
-	Forty by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
 
 (function($) {
 
@@ -12,7 +7,6 @@
 		$header = $('#header'),
 		$banner = $('#banner');
 
-	// Breakpoints.
 		breakpoints({
 			xlarge:    ['1281px',   '1680px'   ],
 			large:     ['981px',    '1280px'   ],
@@ -24,7 +18,7 @@
 
 	/**
 	 * Applies parallax scrolling to an element's background image.
-	 * @return {jQuery} jQuery object.
+	 * @return {jQuery}
 	 */
 	$.fn._parallax = (browser.name == 'ie' || browser.name == 'edge' || browser.mobile) ? function() { return $(this) } : function(intensity) {
 
@@ -91,32 +85,27 @@
 
 	};
 
-	// Play initial animations on page load.
 		$window.on('load', function() {
 			window.setTimeout(function() {
 				$body.removeClass('is-preload');
 			}, 100);
 		});
 
-	// Clear transitioning state on unload/hide.
 		$window.on('unload pagehide', function() {
 			window.setTimeout(function() {
 				$('.is-transitioning').removeClass('is-transitioning');
 			}, 250);
 		});
 
-	// Fix: Enable IE-only tweaks.
 		if (browser.name == 'ie' || browser.name == 'edge')
 			$body.addClass('is-ie');
 
-	// Scrolly.
 		$('.scrolly').scrolly({
 			offset: function() {
 				return $header.height() - 2;
 			}
 		});
 
-	// Tiles.
 		var $tiles = $('.tiles > article');
 
 		$tiles.each(function() {
@@ -126,19 +115,14 @@
 				$link = $this.find('.link'),
 				x;
 
-			// Image.
 
-				// Set image.
 					$this.css('background-image', 'url(' + $img.attr('src') + ')');
 
-				// Set position.
 					if (x = $img.data('position'))
 						$image.css('background-position', x);
 
-				// Hide original.
 					$image.hide();
 
-			// Link.
 				if ($link.length > 0) {
 
 					$x = $link.clone()
@@ -152,26 +136,20 @@
 
 						var href = $link.attr('href');
 
-						// Prevent default.
 							event.stopPropagation();
 							event.preventDefault();
 
-						// Target blank?
 							if ($link.attr('target') == '_blank') {
 
-								// Open in new tab.
 									window.open(href);
 
 							}
 
-						// Otherwise ...
 							else {
 
-								// Start transitioning.
 									$this.addClass('is-transitioning');
 									$wrapper.addClass('is-transitioning');
 
-								// Redirect.
 									window.setTimeout(function() {
 										location.href = href;
 									}, 500);
@@ -184,7 +162,6 @@
 
 		});
 
-	// Header.
 		if ($banner.length > 0
 		&&	$header.hasClass('alt')) {
 
@@ -209,29 +186,23 @@
 
 		}
 
-	// Banner.
 		$banner.each(function() {
 
 			var $this = $(this),
 				$image = $this.find('.image'), $img = $image.find('img');
 
-			// Parallax.
 				$this._parallax(0.275);
 
-			// Image.
 				if ($image.length > 0) {
 
-					// Set image.
 						$this.css('background-image', 'url(' + $img.attr('src') + ')');
 
-					// Hide original.
 						$image.hide();
 
 				}
 
 		});
 
-	// Menu.
 		var $menu = $('#menu'),
 			$menuInner;
 
@@ -286,10 +257,8 @@
 				event.preventDefault();
 				event.stopPropagation();
 
-				// Hide.
 					$menu._hide();
 
-				// Redirect.
 					window.setTimeout(function() {
 						window.location.href = href;
 					}, 250);
@@ -314,22 +283,24 @@
 				event.stopPropagation();
 				event.preventDefault();
 
-				// Toggle.
 					$menu._toggle();
 
 			})
 			.on('click', function(event) {
 
-				// Hide.
 					$menu._hide();
 
 			})
 			.on('keydown', function(event) {
 
-				// Hide on escape.
 					if (event.keyCode == 27)
 						$menu._hide();
 
 			});
 
 })(jQuery);
+
+function scrollToArtSection() {
+	var artSection = document.getElementById("art-section");
+	artSection.scrollIntoView({ behavior: 'smooth' });
+}
