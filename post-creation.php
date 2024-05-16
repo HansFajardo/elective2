@@ -6,7 +6,7 @@
     <section id="banner" class="major">
         <div class="inner">
             <header class="major">
-                <h1>Create a New Blog Post</h1>
+                <h1>Create a New Art Post</h1>
             </header>
         </div>
     </section>
