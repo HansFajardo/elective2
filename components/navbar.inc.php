@@ -10,8 +10,15 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
 ?>
 <header id="header" class="alt">
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a href="index.php" class="logo"><strong>Guhit</strong> <span>Mo</span></a>
+        <div class="container-fluid d-flex flex-row align-items-center">
+
+            <a href="index.php" class="logo">
+                <div class="d-flex flex-row align-items-center">
+                    <img src="../images/GuhitMoLogo.png" width="50px" height="50px" />
+                    <span>uhit</span> <strong>Mo</strong>
+                </div>
+
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -34,9 +41,9 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
                                 <a class="dropdown-item" href="./backend/logout.php">Logout</a>
                             </div>
                         <?php else : ?>
-                            <li> <a href="login.php">Login</a> </li>
-                        <?php endif; ?>
-                    </li>
+                    <li> <a href="login.php">Login</a> </li>
+                <?php endif; ?>
+                </li>
                 </ul>
             </div>
         </div>

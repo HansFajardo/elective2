@@ -5,7 +5,7 @@
 	<?php include("./components/navbar.inc.php"); ?>
 
 
-	<div id="main" class="alt">
+	<div id="main">
 
 		<section id="one">
 			<div class="inner">

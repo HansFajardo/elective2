@@ -250,16 +250,16 @@ a {
 
 a:hover {
 	border-bottom-color: transparent;
-	color: #9bf1ff !important;
+	color: #1f6872 !important;
 	text-decoration: none;
 }
 
 a:active {
-	color: #53e3fb !important;
+	color: #1f6872 !important;
 }
 
 .links .active>a {
-	color: #9bf1ff;
+	color: #1f6872;
 }
 
 strong,
@@ -383,6 +383,28 @@ header.major> :first-child {
 
 header.major> :first-child:after {
 	content: '';
+	background-color: #242943;
+	display: block;
+	height: 2px;
+	margin: 0.325em 0 0.5em 0;
+	width: 100%;
+}
+
+header.major2 {
+	width: -moz-max-content;
+	width: -webkit-max-content;
+	width: -ms-max-content;
+	width: max-content;
+	margin-bottom: 2em;
+}
+
+header.major2> :first-child {
+	margin-bottom: 0;
+	width: calc(100% + 0.5em);
+}
+
+header.major2> :first-child:after {
+	content: '';
 	background-color: #ffffff;
 	display: block;
 	height: 2px;
@@ -396,6 +418,10 @@ header.major>p {
 	letter-spacing: 0.20em;
 	margin-bottom: 0.5em;
 	text-transform: uppercase;
+}
+
+header.major>h1,h2,h3,h4 {
+	color: #242943;
 }
 
 header.major>p strong {
@@ -970,8 +996,8 @@ button,
 	background-color: transparent;
 	border: 0;
 	border-radius: 0;
-	box-shadow: inset 0 0 0 2px #ffffff;
-	color: #ffffff;
+	box-shadow: inset 0 0 0 2px #242943;
+	color: #242943;
 	cursor: pointer;
 	display: inline-block;
 	font-size: 0.8em;
@@ -986,6 +1012,11 @@ button,
 	white-space: nowrap;
 }
 
+.button2{
+	box-shadow: inset 0 0 0 2px #ffffff;
+	color: #ffffff;
+}
+
 input[type="submit"]:hover,
 input[type="submit"]:active,
 input[type="reset"]:hover,
@@ -996,8 +1027,8 @@ button:hover,
 button:active,
 .button:hover,
 .button:active {
-	box-shadow: inset 0 0 0 2px #9bf1ff;
-	color: #9bf1ff;
+	box-shadow: inset 0 0 0 2px #1f6872;
+	color: #1f6872;
 }
 
 input[type="submit"]:active,
@@ -1006,8 +1037,8 @@ input[type="button"]:active,
 button:active,
 .button:active {
 	background-color: rgba(155, 241, 255, 0.1);
-	box-shadow: inset 0 0 0 2px #53e3fb;
-	color: #53e3fb;
+	box-shadow: inset 0 0 0 2px #1f6872;
+	color: #1f6872;
 }
 
 input[type="submit"].icon:before,
@@ -2053,7 +2084,8 @@ body.is-preload #banner>.inner {
 /* Main */
 
 #main {
-	background-color: #2a2f4a;
+	background-color: #ffffff;
+	color: #2a2f4a;
 }
 
 #main>* {
@@ -2472,7 +2504,7 @@ body.is-menu-visible #menu .inner {
 }
 
 .modal-content {
-	background-color: #242943;
+	background-color: #ffffff;
 }
 
 .modal-header .close:hover,
@@ -2565,4 +2597,8 @@ body.is-menu-visible #menu .inner {
 .comment-content {
 	margin-top: 10px;
 	font-size: 1em;
+}
+
+textarea, input[type="text"] {
+	background-color: #ececec;
 }

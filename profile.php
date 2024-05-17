@@ -83,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <section id="banner" class="major">
         <div class="inner">
-            <header class="major">
+            <header class="major2">
                 <h1>Edit Profile</h1>
             </header>
         </div>
@@ -108,9 +108,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             mysqli_stmt_close($stmt);
                         }
 
-                        echo '<label for="profile_pic">Profile Picture:</label><br>';
+                        echo '<label for="profile_pic" style="color: #242943;">Profile Picture:</label><br>';
                         echo '<div id="imagePreview">';
-                        echo '<img src="data:image/jpeg;base64,' . base64_encode($profile_picture) . '" alt="Profile Picture" id="profile_picture" class="profile-picture rounded-circle" width="200px" height="200px" <br/>';
+                        echo '<img src="data:image/jpeg;base64,' . base64_encode($profile_picture) . '" alt="Profile Picture" id="profile_picture" class="rounded-circle" width="200px" height="200px" <br/>';
                         echo '</div>';
                         ?>
 
@@ -119,11 +119,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
 
 
-                    <label for="username">Username:</label><br>
+                    <label for="username" style="color: #242943;">Username:</label><br>
                     <input type="text" id="username" name="username" value="<?php echo htmlspecialchars($username); ?>"><br><br>
                     <span class="text-danger"><?php echo $username_err; ?></span>
 
-                    <label for="email">Email:</label><br>
+                    <label for="email" style="color: #242943;">Email:</label><br>
                     <input type="text" id="email" name="email" value="<?php echo htmlspecialchars($email); ?>"><br><br>
                     <span class="text-danger"><?php echo $email_err; ?></span>
 

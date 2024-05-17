@@ -24,13 +24,13 @@ mysqli_close($connection);
 
 	<section id="banner" class="major">
 		<div class="inner">
-			<header class="major">
+			<header class="major2">
 				<h1>Welcome to Guhit Mo!</h1>
 			</header>
 			<div class="content">
 				<p>The World in Your Hands!</p>
 				<ul class="actions">
-                    <li><a href="javascript:void(0);" onclick="scrollToArtSection();" class="button next scrolly">See Arts</a></li>
+                    <li><a href="javascript:void(0);" onclick="scrollToArtSection();" class="button button2 next scrolly">See Arts</a></li>
                 </ul>
 			</div>
 		</div>
@@ -50,9 +50,6 @@ mysqli_close($connection);
 					connect, and immerse yourself in a world where every masterpiece tells a story. Join us as we journey
 					through the depths of creativity and unveil the beauty that lies within each Guhit (Stroke) — for here,
 					art isn't just observed, it's experienced.</p>
-				<ul class="actions">
-					<li><a href="about-us.html" class="button next">Read more</a></li>
-				</ul>
 			</div>
 		</section>
 
@@ -82,11 +79,11 @@ mysqli_close($connection);
                             ?>
                             <img src="<?php echo $imageSrc; ?>" alt="<?php echo $post['title']; ?>" style="width: 100%; height: auto;">
                         </span>
-                        <header class="major">
-                            <h4><?php echo $post['title']; ?></h4>
+                        <header class="major2 text-white">
+                            <h4 style="color: #ffffff;"><?php echo $post['title']; ?></h4>
                             <p><br> <span><?php echo $post['author']; ?></span> | <span><?php echo $post['upload_date']; ?></span></p>
                             <div class="major-actions">
-                                <a href="art-details.php?id=<?php echo $post['id']; ?>" class="button small next scrolly">Open Art</a>
+                                <a href="art-details.php?id=<?php echo $post['id']; ?>" class="button button2 small next scrolly">Open Art</a>
                             </div>
                         </header>
                     </article>

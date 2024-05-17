@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <div id="wrapper">
 	<?php require("./components/navbar.inc.php"); ?>
-	<div id="main" class="alt">
+	<div id="main">
 		<section id="one">
 			<div class="inner">
 				<a href="index.php" class="button mb-4 px-4 py-0">Back</a>
@@ -117,7 +117,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 				<h2>Leave a Comment</h2>
 				<form action="art-details.php?id=<?php echo $artId; ?>" method="POST">
 					<div>
-						<label for="comment">Your Comment:</label>
+						<label for="comment" style="color: #242943;">Your Comment:</label>
 						<textarea name="comment" id="comment" rows="4" required></textarea>
 					</div>
 					<button type="submit" class="mt-5">Submit Comment</button>

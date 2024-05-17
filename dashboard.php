@@ -12,7 +12,7 @@ require_once "./components/header.inc.php";
     <!-- Dashboard Content -->
     <section id="dashboard" class="major">
         <div class="inner">
-            <header class="major">
+            <header class="major2">
                 <h1>Welcome back, <?php echo htmlspecialchars($_SESSION["username"]); ?>!</h1>
             </header>
             <p>This is your dashboard. You can customize it with your own content.</p>
