@@ -77,7 +77,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body style="background: linear-gradient(45deg, #445297, #242943);">
     <div class="d-flex align-items-center justify-content-center" style="height: 100vh;">
         <div class="container text-center bg-white p-3 rounded-2" style="max-width: 400px;">
+            <div class="text-left">
+                <button type="button" class="btn btn-secondary text-left" onclick="window.location.href='index.php';">Back</button>
+            </div>
             <h2>Enter Studio</h2>
+
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 <div class="form-group text-left">
                     <label class="ml-2">Username or Email</label>
@@ -94,6 +98,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <p class="text-danger"><?php echo $login_err; ?></p>
                 <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
+
             </form>
         </div>
     </div>
