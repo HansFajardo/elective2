@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once("./backend/config.php");
 
 $sql = "SELECT id, author, title, description, upload_date, image FROM posts";

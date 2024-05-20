@@ -12,7 +12,6 @@ $username = $email = '';
 $username_err = $email_err = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Handle profile picture upload
     if(isset($_FILES["profile_pic"]) && $_FILES["profile_pic"]["error"] == 0){
         $profile_picture = file_get_contents($_FILES["profile_pic"]["tmp_name"]);
     }
@@ -30,11 +29,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if (empty($username_err) && empty($email_err)) {
-        // Update username and email
         $sql = "UPDATE users SET username = ?, email = ?";
         $params = array($username, $email);
 
-        // Check if profile picture is uploaded
         if(isset($profile_picture)){
             $sql .= ", picture = ?";
             $params[] = $profile_picture;
@@ -44,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $params[] = $user_id;
 
         if ($stmt = mysqli_prepare($connection, $sql)) {
-            $types = str_repeat('s', count($params)); // Generate type string for bind_param
+            $types = str_repeat('s', count($params));
             mysqli_stmt_bind_param($stmt, $types, ...$params);
 
             if (mysqli_stmt_execute($stmt)) {

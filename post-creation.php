@@ -1,4 +1,6 @@
-<?php require("./components/header.inc.php"); ?>
+<?php
+session_start();
+require("./components/header.inc.php"); ?>
 
 <div id="wrapper">
     <?php require("./components/navbar.inc.php"); ?>

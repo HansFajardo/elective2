@@ -10015,4 +10015,8 @@ a.text-dark:hover {
     }
 }
 
+.object-fit-cover{
+    object-fit: cover;
+}
+
 /*# sourceMappingURL=bootstrap.min.css.map */

@@ -45,7 +45,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             $_SESSION["username"] = $username;
                             $_SESSION["email"] = $email;
 
+                            session_write_close();
+
                             header("location: index.php");
+                            exit();
                         } else {
                             $login_err = 'Invalid username or password.';
                         }

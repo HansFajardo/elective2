@@ -57,12 +57,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    // Check if file was uploaded without errors
     if(isset($_FILES["profile_pic"]) && $_FILES["profile_pic"]["error"] == 0){
         $allowed_types = array('jpg', 'jpeg', 'png');
         $file_extension = pathinfo($_FILES["profile_pic"]["name"], PATHINFO_EXTENSION);
 
-        // Check if file type is allowed
         if(in_array($file_extension, $allowed_types)){
             $picture = $_FILES["profile_pic"]["tmp_name"];
         } else {
@@ -70,7 +68,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit;
         }
     } else {
-        // Use default image if no file is uploaded
         $picture = "./images/default_profile_pic.jpg";
     }
 
@@ -84,7 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $param_username = $username;
             $param_email = $email;
             $param_password = password_hash($password, PASSWORD_DEFAULT);
-            $param_picture = file_get_contents($picture); // Read image file
+            $param_picture = file_get_contents($picture); 
 
             if (mysqli_stmt_execute($stmt)) {
                 header("location: login.php");
@@ -149,11 +146,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="form-group profile-pic-upload">
                     <label class="ml-2">Profile Picture</label>
                     <?php
-                        // If the user uploaded an image, show the uploaded image
                         if(isset($_FILES["profile_pic"]) && $_FILES["profile_pic"]["error"] == 0){
                             echo '<img id="preview" src="'.htmlspecialchars($_FILES["profile_pic"]["tmp_name"]).'" alt="Profile Picture">';
                         } else {
-                            // Otherwise, show the default image
                             echo '<img id="preview" src="./images/default_profile_pic.jpg" alt="Profile Picture">';
                         }
                     ?>
