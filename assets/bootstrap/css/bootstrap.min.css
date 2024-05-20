@@ -3516,7 +3516,7 @@ input[type=submit].btn-block {
 }
 
 .dropdown-menu.show {
-    display: block
+    display: block;
 }
 
 .dropdown-header {
@@ -4673,7 +4673,7 @@ input[type=submit].btn-block {
     display: -ms-flexbox !important;
     display: flex !important;
     -ms-flex-preferred-size: auto;
-    flex-basis: auto
+    flex-basis: auto;
 }
 
 .navbar-expand .navbar-toggler {
@@ -10017,6 +10017,12 @@ a.text-dark:hover {
 
 .object-fit-cover{
     object-fit: cover;
+}
+
+.navbar .container-fluid .show, .navbar .container-fluid .collapsing{
+    background-color: rgba(0, 0, 0, .6);
+    border-end-end-radius: 20px;
+    border-end-start-radius: 20px;
 }
 
 /*# sourceMappingURL=bootstrap.min.css.map */
