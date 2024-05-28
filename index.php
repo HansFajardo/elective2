@@ -8,11 +8,11 @@ $result = mysqli_query($connection, $sql);
 $posts = [];
 
 if (mysqli_num_rows($result) > 0) {
-    while ($row = mysqli_fetch_assoc($result)) {
-        $posts[] = $row;
-    }
+	while ($row = mysqli_fetch_assoc($result)) {
+		$posts[] = $row;
+	}
 } else {
-    echo "No posts found.";
+	echo "No posts found.";
 }
 
 mysqli_close($connection);
@@ -31,8 +31,8 @@ mysqli_close($connection);
 			<div class="content">
 				<p>The World in Your Hands!</p>
 				<ul class="actions">
-                    <li><a href="javascript:void(0);" onclick="scrollToArtSection();" class="button button2 next scrolly">See Arts</a></li>
-                </ul>
+					<li><a href="javascript:void(0);" onclick="scrollToArtSection();" class="button button2 next scrolly">See Arts</a></li>
+				</ul>
 			</div>
 		</div>
 	</section>
@@ -67,30 +67,30 @@ mysqli_close($connection);
 		</section>
 
 		<section id="art-section" class="inner">
-            <header class="major">
-                <h2>See some arts!</h2>
-            </header>
-            <div class="tiles d-flex flex-row justify-content-center">
-                <?php foreach ($posts as $post) : ?>
-                    <article class="m-3">
-                        <span class="image">
-                            <?php
-                            $imageData = base64_encode($post['image']);
-                            $imageSrc = 'data:image/jpeg;base64,' . $imageData;
-                            ?>
-                            <img src="<?php echo $imageSrc; ?>" alt="<?php echo $post['title']; ?>" style="width: 100%; height: auto;">
-                        </span>
-                        <header class="major2 text-white">
-                            <h4 style="color: #ffffff;"><?php echo $post['title']; ?></h4>
-                            <p><br> <span><?php echo $post['author']; ?></span> | <span><?php echo $post['upload_date']; ?></span></p>
-                            <div class="major-actions">
-                                <a href="art-details.php?id=<?php echo $post['id']; ?>" class="button button2 small next scrolly">Open Art</a>
-                            </div>
-                        </header>
-                    </article>
-                <?php endforeach; ?>
-            </div>
-        </section>
+			<header class="major">
+				<h2>See some arts!</h2>
+			</header>
+			<div class="tiles d-flex flex-row justify-content-center">
+				<?php foreach ($posts as $post) : ?>
+					<article class="m-3">
+						<span class="image">
+							<?php
+							$imageData = base64_encode($post['image']);
+							$imageSrc = 'data:image/jpeg;base64,' . $imageData;
+							?>
+							<img src="<?php echo $imageSrc; ?>" alt="<?php echo $post['title']; ?>" style="width: 100%; height: auto;">
+						</span>
+						<header class="major2 text-white">
+							<h4 style="color: #ffffff;"><?php echo $post['title']; ?></h4>
+							<p><br> <span><?php echo $post['author']; ?></span> | <span><?php echo $post['upload_date']; ?></span></p>
+							<div class="major-actions">
+								<a href="art-details.php?id=<?php echo $post['id']; ?>" class="button button2 small next scrolly">Open Art</a>
+							</div>
+						</header>
+					</article>
+				<?php endforeach; ?>
+			</div>
+		</section>
 
 		<section class="inner">
 			<div>
